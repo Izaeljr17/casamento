@@ -1,4 +1,4 @@
-   :root{
+:root{
   --bg: #fff9f7;
   --card: #ffffff;
   --accent: #d97706;
@@ -120,6 +120,7 @@ p.lead{
   border:0;
   cursor:pointer;
   font-weight:600;
+  min-height:44px;
 }
 
 .btn-primary{
@@ -145,6 +146,10 @@ p.lead{
   object-fit:cover;
   border-radius:10px;
   cursor:pointer;
+  transition: transform 0.3s ease;
+}
+.gallery img:hover{
+  transform: scale(1.03);
 }
 
 .col{
@@ -169,6 +174,8 @@ footer{
   align-items:center;
   justify-content:center;
   padding:20px;
+  overflow-y:auto;
+  z-index:1000;
 }
 .modal{
   background:white;
@@ -177,6 +184,8 @@ footer{
   width:100%;
   padding:18px;
   position:relative;
+  max-height:90vh;
+  overflow-y:auto;
 }
 .modal h2{margin:0 0 10px}
 label{display:block;font-size:0.9rem;margin:8px 0 6px}
@@ -203,10 +212,12 @@ input[type="text"],input[type="email"],select{
   display:none;
   align-items:center;
   justify-content:center;
+  z-index:2000;
 }
 .lightbox img{
   max-width:92%;
   max-height:92%;
+  object-fit:contain;
   border-radius:10px;
 }
 
@@ -244,6 +255,13 @@ input[type="text"],input[type="email"],select{
     flex-direction:column;
     align-items:flex-start;
     gap:4px;
+  }
+  .gallery{
+    flex-direction:column;
+    gap:8px;
+  }
+  .gallery .col{
+    width:100%;
   }
 }
 
