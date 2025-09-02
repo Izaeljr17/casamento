@@ -122,24 +122,25 @@
   </div>
 
   <script>
-    // Countdown
-    const eventDate = new Date('2026-01-10T16:00:00');
-    function updateCountdown(){
-      const now = new Date();
-      let diff = Math.max(0, eventDate - now);
-      const days = Math.floor(diff / (1000*60*60*24));
-      diff -= days*(1000*60*60*24);
-      const hours = Math.floor(diff / (1000*60*60));
-      diff -= hours*(1000*60*60);
-      const mins = Math.floor(diff / (1000*60));
-      diff -= mins*(1000*60);
-      const secs = Math.floor(diff / 1000);
-      document.getElementById('d').textContent = days;
-      document.getElementById('h').textContent = String(hours).padStart(2,'0');
-      document.getElementById('m').textContent = String(mins).padStart(2,'0');
-      document.getElementById('s').textContent = String(secs).padStart(2,'0');
-    }
-    updateCountdown();setInterval(updateCountdown,1000);
+  const eventDate = new Date('2026-03-01T16:00:00');
+
+  function updateCountdown(){
+    const now = new Date();
+    let diff = Math.max(0, eventDate.getTime() - now.getTime()); // diferença em ms
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const secs = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById('d').textContent = days;
+    document.getElementById('h').textContent = String(hours).padStart(2,'0');
+    document.getElementById('m').textContent = String(mins).padStart(2,'0');
+    document.getElementById('s').textContent = String(secs).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
     // Modal logic
     const rsvpBtn = document.getElementById('rsvpBtn');
