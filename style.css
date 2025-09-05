@@ -1,11 +1,11 @@
 :root {
-  --bg: rgba(255, 255, 255, 0.6); /* overlay para legibilidade */
-  --card: rgba(245, 163, 163, 0.85);
-  --accent: #d97706;
-  --muted: #000000;
-  --glass: rgba(255, 255, 255, 0.6);
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --bg: rgba(255, 245, 235, 0.6); /* overlay mais quente */
+  --card: rgba(245, 163, 104, 0.85); /* card mais terroso */
+  --accent: #c75b12; /* botão principal em tom terra */
+  --muted: #4b2e2a; /* textos secundários em marrom escuro */
+  --glass: rgba(255, 245, 235, 0.6);
 }
+
 
 * {
   box-sizing: border-box;
@@ -13,11 +13,13 @@
 
 /* Background da página com overlay */
 body {
+  font-family: 'Arial', sans-serif;
   margin: 0;
   min-height: 100vh;
   position: relative;
   color: #111;
 }
+
 
 body::before {
   content: '';
@@ -32,9 +34,10 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6); /* overlay semi-transparente para legibilidade */
+  background: rgba(255, 245, 235, 0.6); /* leve tom quente */
   z-index: -1;
 }
+
 
 .wrap {
   max-width: 1000px;
@@ -74,6 +77,10 @@ h1 {
   letter-spacing: 0.6px;
 }
 
+h1, .couple-photos .photo .label {
+  color: var(--muted);
+}
+
 p.lead {
   margin: 6px 0 0;
   color: var(--muted);
@@ -110,13 +117,15 @@ p.lead {
 }
 
 .countdown .item {
-  background: var(--glass);
-  backdrop-filter: blur(6px);
-  padding: 16px 18px;
+  background: #c75b12;
+  color: #fff;
   border-radius: 12px;
-  text-align: center;
+  padding: 16px 20px;
   min-width: 80px;
+  text-align: center;
 }
+
+
 
 .countdown .num {
   font-weight: 700;
@@ -194,13 +203,15 @@ p.lead {
 
 .btn-primary {
   background: var(--accent);
-  color: white;
+  color: #fff;
 }
 
 .btn-ghost {
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--muted);
+  color: var(--muted);
 }
+
 
 .gallery {
   display: flex;
