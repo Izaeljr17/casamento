@@ -25,7 +25,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: url('') no-repeat center center fixed;
+  background: url('https://storage.alboom.ninja/sites/1132/albuns/432635/fotos-casamento-casal-noivos-regiane-e-fabio-campinas-espaco-quinta-das-brumelias-campinas-sp-fotografo-denis-silveira-fotografia-wedding-photography-182.JPG?t=1656367338') no-repeat center center fixed;
   background-size: cover;
   z-index: -2;
 }
@@ -369,3 +369,4 @@ select {
   }
 
 }
+
