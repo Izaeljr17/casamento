@@ -116,7 +116,7 @@
   </div>
 
   <script>
-  const eventDate = new Date('2026-04-01T16:00:00');
+  const eventDate = new Date('2026-03-01T16:00:00');
 
   function updateCountdown(){
     const now = new Date();
@@ -199,20 +199,32 @@
   });
   lightbox.addEventListener('click', ()=>{ lightbox.style.display='none'; lightbox.setAttribute('aria-hidden','true'); });
 
-  // Share button
-  if(navigator.share){
-    const shareBtn = document.createElement('button');
-    shareBtn.className='btn btn-ghost';
-    shareBtn.textContent = 'Compartilhar';
-    shareBtn.addEventListener('click', ()=>{
-      navigator.share({title:'Convite Marcos & Rafaelly', text:'Você foi convidado para o casamento de Marcos & Rafaelly', url:location.href});
+  // Checa se deve exibir o botão de compartilhar
+const urlParams = new URLSearchParams(window.location.search);
+
+if (navigator.share && urlParams.get('share') !== 'false') {
+  const shareBtn = document.createElement('button');
+  shareBtn.className = 'btn btn-ghost';
+  shareBtn.textContent = 'Compartilhar';
+
+  shareBtn.addEventListener('click', () => {
+    // Cria nova URL com parâmetro para ocultar o botão
+    const url = new URL(location.href);
+    url.searchParams.set('share', 'false');
+
+    navigator.share({
+      title: 'Convite Marcos & Rafaelly',
+      text: 'Você foi convidado para o casamento de Marcos & Rafaelly',
+      url: url.toString()
     });
-    document.querySelector('.actions').appendChild(shareBtn);
-  }
+  });
+
+  document.querySelector('.actions').appendChild(shareBtn);
+}
+
 
   // Keyboard shortcut R
   window.addEventListener('keydown',(e)=>{ if(e.key.toLowerCase()==='r') rsvpBtn.click(); });
   </script>
 </body>
 </html>
-
